@@ -5,7 +5,7 @@ services:
     volumes:
       - ./:/backup
     environment:
-      CRON_STRINGS: '* * * * * file=backup$$(date +\%Y-\%m-\%d).tar.gz &&
+      CRON_STRINGS: '0 0 * * * file=backup$$(date +\%Y-\%m-\%d).tar.gz &&
       /bin/tar -zcvf /$$file /backup &&
       /usr/local/bin/aws s3 mv /$$file s3://${AWS_BACKUP_BUCKET}${AWS_BACKUP_PATH}'
       AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}

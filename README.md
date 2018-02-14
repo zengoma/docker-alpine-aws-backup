@@ -3,7 +3,8 @@
 Dockerfile for backing up directories to aws S3 bucket (based on xordiv's alpine cron)
 Installed packages: dcron wget rsync ca-certificates aws-cli
 
-** Please see the docker-compose file for a full working example of an s3 backup  
+** Please see the docker-compose file for a full working example of an s3 backup
+(The current example will backup at midnight every day)  
 
 #### Environment variables:
 
@@ -18,7 +19,7 @@ By default cron running in foreground
 
 Optional: (These are only used in my docker-compose example)
 AWS_BACKUP_BUCKET=<your-backet>
-AWS_BACKUP_PATH=/backups
+AWS_BACKUP_PATH=/backups/ (dont forget leading and trailing slashes)
 
 #### Cron files
 - /etc/cron.d - place to mount custom crontab files  
